@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: rackup -p 9000 -o '0.0.0.0'
+    volumes:
+      - .:/app
+    ports:
+      - "9000:9000"
