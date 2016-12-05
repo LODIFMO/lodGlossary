@@ -16,9 +16,11 @@
     "url": "https://github.com/LODIFMO/lodGlossary/issues"
   },
   "dependencies": {
+    "ace-css": "1",
     "css-loader": "0",
     "elm-webpack-loader": "3",
     "file-loader": "0",
+    "font-awesome": "4",
     "style-loader": "0",
     "url-loader": "0",
     "webpack": "1",
