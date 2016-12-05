@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Hello Semantic Web!'
+  slim :'index'
 end
