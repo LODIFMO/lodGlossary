@@ -1,0 +1,3 @@
+# lodGlossary
+
+Sinatra app
