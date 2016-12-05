@@ -16,6 +16,13 @@
     "url": "https://github.com/LODIFMO/lodGlossary/issues"
   },
   "dependencies": {
-    "webpack": "^1.13.3"
+    "css-loader": "0",
+    "elm-webpack-loader": "3",
+    "file-loader": "0",
+    "style-loader": "0",
+    "url-loader": "0",
+    "webpack": "1",
+    "webpack-dev-middleware": "1",
+    "webpack-dev-server": "1"
   }
 }
