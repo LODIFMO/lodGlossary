@@ -1,5 +1,7 @@
 version: '2'
 services:
+  mongo:
+    image: mongo
   web:
     build: .
     command: rackup -p 9000 -o '0.0.0.0'
@@ -7,3 +9,5 @@ services:
       - .:/app
     ports:
       - "9000:9000"
+    depends_on:
+      - mongo
