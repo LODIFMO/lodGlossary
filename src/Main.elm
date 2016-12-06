@@ -6,11 +6,23 @@ import Html.Attributes exposing (..)
 -- MODEL
 
 type alias Model =
-  String
+  { id: String
+  , title: String
+  , description: String
+  , dbpedia_description: String
+  }
+
+default_init : Model
+default_init =
+  { id = ""
+  , title = ""
+  , description = ""
+  , dbpedia_description = ""
+  }
 
 init : ( Model, Cmd Msg )
 init =
-  ( "Hello", Cmd.none )
+  ( default_init, Cmd.none )
 
 -- MESSAGES
 
