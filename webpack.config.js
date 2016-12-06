@@ -1,0 +1,47 @@
+var path = require("path");
+
+module.exports = {
+  entry: {
+    app: [
+      './assets/index.js'
+    ]
+  },
+
+  output: {
+    path: './public',
+    filename: '[name].js'
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.(css|scss)$/,
+        loaders: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        loader: 'file?name=[name].[ext]',
+      },
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node-modules/],
+        loader: 'elm-webpack?verbose=true&warn=true',
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+    ],
+
+    noParse: /\.elm$/,
+  },
+
+  devServer: {
+    inline: true,
+    stats: { colors: true },
+  }
+};
