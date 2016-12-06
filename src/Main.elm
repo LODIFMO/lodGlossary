@@ -37,7 +37,8 @@ init =
 -- MESSAGES
 
 type Msg
-  = NoOp
+  = NoOp |
+    OnFetchAll (Result Http.Error Terms)
 
 -- VIEW
 
@@ -74,6 +75,10 @@ termRow term =
 update : Msg -> Terms -> ( Terms, Cmd Msg )
 update msg terms =
   case msg of
+    OnFetchAll (Ok newTerms) ->
+      ( newTerms, Cmd.none )
+    OnFetchAll (Err error) ->
+      ( terms, Cmd.none )
     NoOp ->
       ( terms, Cmd.none )
 
