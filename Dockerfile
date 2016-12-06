@@ -16,5 +16,6 @@ RUN apt-get install -y npm
 RUN npm install --global yarn
 RUN cd /app && yarn install
 RUN yarn global add elm
+RUN yarn global add foreman
 RUN cd /app && elm install
 ADD . /app
