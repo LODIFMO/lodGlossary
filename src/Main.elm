@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, div, text, program, h1, p, br, span)
+import Html exposing (Html, div, text, program, table, thead, tbody, tr, td, th, button)
 import Html.Attributes exposing (..)
 
 -- MODEL
@@ -22,12 +22,14 @@ type Msg
 view : Model -> Html Msg
 view model =
   div [ class "row" ]
-    [ div [ class "starter-template" ]
-      [ h1 [] [ text model ]
-      , p [ class "lead" ]
-        [ span [] [ text "Use this document as a way to quickly start any new project." ]
-        , br [] []
-        , span [] [ text "All you get is this text and a mostly barebones HTML document." ]
+    [ table [ class "table table-hover" ]
+      [ thead []
+        [ tr []
+          [ th [] [ text "Термин" ]
+          , th [] [ text "Эталон" ]
+          , th [] [ text "DBpedia" ]
+          , th [] []
+          ]
         ]
       ]
     ]
