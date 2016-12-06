@@ -81,6 +81,10 @@ fetchAllUrl : String
 fetchAllUrl =
   "http://0.0.0.0:9000/terms.json"
 
+termsDecoder : Decode.Decoder Terms
+termsDecoder =
+  Decode.list termDecoder
+
 termDecoder : Decode.Decoder Term
 termDecoder =
   Decode.map4 Term
