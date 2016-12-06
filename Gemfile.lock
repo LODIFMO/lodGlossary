@@ -18,6 +18,7 @@ GEM
     mongoid (6.0.3)
       activemodel (~> 5.0)
       mongo (~> 2.3)
+    oj (2.18.0)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
@@ -37,6 +38,7 @@ DEPENDENCIES
   bson_ext
   mongo
   mongoid
+  oj
   sinatra
 
 BUNDLED WITH

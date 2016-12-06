@@ -6,3 +6,6 @@ gem 'sinatra'
 gem 'mongo'
 gem 'bson_ext'
 gem 'mongoid'
+
+# json
+gem 'oj'
