@@ -17,5 +17,5 @@ end
 
 get '/terms.json' do
   terms = Term.all
-  json terms
+  json terms.map(&:to_json)
 end
