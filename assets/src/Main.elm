@@ -7,7 +7,7 @@ import Html exposing (Html, div, text, program)
 type alias Model =
   String
 
-init : ( Model. Cms Msg )
+init : ( Model, Cmd Msg )
 init =
   ( "Hello", Cmd.none )
 

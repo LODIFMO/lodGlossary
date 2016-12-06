@@ -4,7 +4,7 @@
   "description": "Glossary for ipm.semantics",
   "main": "index.js",
   "scripts": {
-    "api": "rackup -p 9000 -o '0.0.0.0'",
+    "api": "rackup -p 4000 -o '0.0.0.0'",
     "build": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --port 9999 --host '0.0.0.0'",
@@ -20,15 +20,15 @@
     "url": "https://github.com/LODIFMO/lodGlossary/issues"
   },
   "dependencies": {
-    "ace-css": "1",
-    "css-loader": "0",
-    "elm-webpack-loader": "3",
-    "file-loader": "0",
-    "font-awesome": "4",
-    "style-loader": "0",
-    "url-loader": "0",
-    "webpack": "1",
-    "webpack-dev-middleware": "1",
-    "webpack-dev-server": "1"
+    "ace-css": "^1.1.0",
+    "css-loader": "^0.26.1",
+    "elm-webpack-loader": "^3.1.0",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2"
   }
 }

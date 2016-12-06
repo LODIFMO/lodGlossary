@@ -9,7 +9,7 @@ module.exports = {
 
   output: {
     path: './public',
-    filename: '[name].js'
+    filename: 'app.js'
   },
 
   module: {
@@ -18,22 +18,26 @@ module.exports = {
         test: /\.(css|scss)$/,
         loaders: [
           'style-loader',
-          'css-loader'
+          'css-loader',
         ]
       },
       {
-        test: /\.html$/,
+        test:    /\.html$/,
         exclude: /node_modules/,
-        loader: 'file?name=[name].[ext]',
+        loader:  'file?name=[name].[ext]',
       },
       {
-        test: /\.elm$/,
-        exclude: [/elm-stuff/, /node-modules/],
-        loader: 'elm-webpack?verbose=true&warn=true',
+        test:    /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        loader:  'elm-webpack?verbose=true&warn=true',
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader',
       },
     ],
 
@@ -43,5 +47,6 @@ module.exports = {
   devServer: {
     inline: true,
     stats: { colors: true },
-  }
+  },
+
 };
