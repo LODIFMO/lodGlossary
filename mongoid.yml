@@ -1,0 +1,5 @@
+development:
+  clients:
+    default:
+      database: lod_glossary
+      hosts: ["mongo:27017"]
