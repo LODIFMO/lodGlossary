@@ -14,5 +14,6 @@ RUN n stable
 RUN ln -sf /usr/local/n/versions/node/7.2.0/bin/node /usr/bin/node
 RUN apt-get install -y npm
 RUN npm install -g foreman
-RUN cd /app && elm install
+RUN npm install -g elm
+RUN cd /app && elm-package install -y
 ADD . /app
