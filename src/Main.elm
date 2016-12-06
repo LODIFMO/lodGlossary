@@ -4,6 +4,7 @@ import Html exposing (Html, div, text, program, table, thead, tbody, tr, td, th,
                       button, i)
 import Html.Attributes exposing (..)
 import Http
+import Json.Decode as Decode exposing (field)
 
 -- MODEL
 
@@ -79,6 +80,14 @@ update msg terms =
 fetchAllUrl : String
 fetchAllUrl =
   "http://0.0.0.0:9000/terms.json"
+
+termDecoder : Decode.Decoder Term
+termDecoder =
+  Decode.map4 Term
+    (field "id" Decode.string)
+    (field "title" Decode.string)
+    (field "description" Decode.string)
+    (field "dbpedia_description" Decode.string)
 
 -- SUBSCRIPTIONS
 
