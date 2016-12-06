@@ -1,10 +1,12 @@
 {
-    "version": "1.0.0",
-    "summary": "helpful summary of your project, less than 80 characters",
-    "repository": "https://github.com/user/project.git",
-    "license": "BSD3",
+    "version": "0.0.1",
+    "summary": "LOD Glossary for ipm.semantics",
+    "repository": "https://github.com/LODIFMO/lodGlossary",
+    "license": "MIT",
     "source-directories": [
-        "."
+        ".",
+        "./assets",
+        "./assets/src"
     ],
     "exposed-modules": [],
     "dependencies": {
