@@ -1,15 +1,25 @@
 var path = require("path");
 
+var webpack = require('webpack');
+
+// set NODE_ENV=production on the environment to add asset fingerprints
+var production = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: {
     app: [
-      './assets/index.js'
+      './src/index.js'
     ]
   },
 
   output: {
-    path: './public',
-    filename: 'app.js'
+    path: path.join(__dirname, '.', 'lib', 'app', 'public'),
+
+    filename: production ? '[name]-[chunkhash].js' : '[name].js'
+  },
+
+  resolve: {
+    root: path.join(__dirname, '.', 'lib', 'app', 'public')
   },
 
   module: {
