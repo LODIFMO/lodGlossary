@@ -21,4 +21,12 @@ namespace :db do
     Term.create! title: 'title', description: 'description',
                  dbpedia_description: 'dbpedia', dbpedia_uri: '12'
   end
+
+  desc 'Remove all data'
+  task :clear do |cmd, args|
+    env = args[:env] || 'development'
+
+    Rake::Task['environment'].invoke(env)
+    Term.delete_all
+  end
 end
