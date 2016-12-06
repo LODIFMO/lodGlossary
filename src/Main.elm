@@ -5,14 +5,17 @@ import Html.Attributes exposing (..)
 
 -- MODEL
 
-type alias Model =
+type alias Term =
   { id: String
   , title: String
   , description: String
   , dbpedia_description: String
   }
 
-default_init : Model
+type alias Terms =
+  List Term
+
+default_init : Term
 default_init =
   { id = ""
   , title = ""
@@ -20,7 +23,7 @@ default_init =
   , dbpedia_description = ""
   }
 
-init : ( Model, Cmd Msg )
+init : ( Term, Cmd Msg )
 init =
   ( default_init, Cmd.none )
 
@@ -31,7 +34,7 @@ type Msg
 
 -- VIEW
 
-view : Model -> Html Msg
+view : Term -> Html Msg
 view model =
   div [ class "row" ]
     [ table [ class "table table-hover" ]
@@ -48,7 +51,7 @@ view model =
 
 -- UPDATE
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Term -> ( Term, Cmd Msg )
 update msg model =
   case msg of
     NoOp ->
@@ -56,13 +59,13 @@ update msg model =
 
 -- SUBSCRIPTIONS
 
-subscriptions : Model -> Sub Msg
+subscriptions : Term -> Sub Msg
 subscriptions model =
   Sub.none
 
 -- MAIN
 
-main : Program Never Model Msg
+main : Program Never Term Msg
 main =
   program
     { init = init
