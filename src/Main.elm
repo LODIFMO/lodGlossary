@@ -24,9 +24,13 @@ default_init =
   , dbpedia_description = ""
   }
 
-init : ( Term, Cmd Msg )
+default_list : Terms
+default_list =
+  []
+
+init : ( Terms, Cmd Msg )
 init =
-  ( default_init, Cmd.none )
+  ( default_list, Cmd.none )
 
 -- MESSAGES
 
@@ -35,8 +39,8 @@ type Msg
 
 -- VIEW
 
-view : Term -> Html Msg
-view model =
+view : Terms -> Html Msg
+view terms =
   div [ class "row" ]
     [ table [ class "table table-hover" ]
       [ thead []
@@ -47,6 +51,7 @@ view model =
           ]
         ]
       ]
+    , tbody [] ( List.map termRow terms )
     ]
 
 termRow : Term -> Html Msg
@@ -55,7 +60,7 @@ termRow term =
     [ td [] [ text term.id ]
     , td [] [ text term.description ]
     , td [] [ text term.dbpedia_description ]
-    , th []
+    , td []
       [ button [ class "btn btn-info btn-xs"]
         [ i [ class "fa fa-fw fa-eye" ] []
         ]
@@ -64,21 +69,21 @@ termRow term =
 
 -- UPDATE
 
-update : Msg -> Term -> ( Term, Cmd Msg )
-update msg model =
+update : Msg -> Terms -> ( Terms, Cmd Msg )
+update msg terms =
   case msg of
     NoOp ->
-      ( model, Cmd.none )
+      ( terms, Cmd.none )
 
 -- SUBSCRIPTIONS
 
-subscriptions : Term -> Sub Msg
-subscriptions model =
+subscriptions : Terms -> Sub Msg
+subscriptions terms =
   Sub.none
 
 -- MAIN
 
-main : Program Never Term Msg
+main : Program Never Terms Msg
 main =
   program
     { init = init
