@@ -14,5 +14,7 @@ RUN n stable
 RUN ln -sf /usr/local/n/versions/node/7.2.0/bin/node /usr/bin/node
 RUN apt-get install -y npm
 RUN npm install --global yarn
-RUN yarn install
+RUN cd /app && yarn install
+RUN yarn global add elm
+RUN cd /app && elm install
 ADD . /app
