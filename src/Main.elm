@@ -45,7 +45,7 @@ type Msg
 view : Terms -> Html Msg
 view terms =
   div [ class "row" ]
-    [ table [ class "table table-hover" ]
+    [ table [ class "table table-hover table-striped" ]
       [ thead []
         [ tr []
           [ th [] [ text "Термин" ]
@@ -85,6 +85,11 @@ update msg terms =
 fetchAllUrl : String
 fetchAllUrl =
   "http://0.0.0.0:9000/terms.json"
+
+fetchAll : Cmd Msg
+fetchAll =
+  Http.get fetchAllUrl termsDecoder
+    |> Http.send OnFetchAll
 
 termsDecoder : Decode.Decoder Terms
 termsDecoder =
