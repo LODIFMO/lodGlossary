@@ -1,4 +1,7 @@
 module Terms.Messages exposing (..)
 
+import Http
+import Terms.Models exposing (TermId, Term)
+
 type Msg
-  = NoOp
+  = OnFetchAll (Result Http.Error (List Term))

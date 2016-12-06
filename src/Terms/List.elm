@@ -38,7 +38,7 @@ list terms =
 termRow : Term -> Html Msg
 termRow term =
   tr []
-    [ td [] [ text term.id ]
+    [ td [] [ text term.title ]
     , td [] [ text term.description ]
     , td [] [ text term.dbpedia_description ]
     , td []

@@ -8,5 +8,5 @@ type alias Model =
 
 initialModel : Model
 initialModel =
-  { terms = [ Term "1" "1" "1" "1" ]
+  { terms = []
   }

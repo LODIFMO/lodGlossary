@@ -4,7 +4,7 @@
   "description": "example sinatra-react app",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base lib/app/views --progress --colors --port 9999 --host '0.0.0.0'",
+    "dev": "webpack-dev-server --content-base 9000 --progress --colors --port 9999 --host '0.0.0.0'",
     "build": "webpack -p --config webpack.config.js --profile --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
