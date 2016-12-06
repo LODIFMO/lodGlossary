@@ -1,25 +1,25 @@
 {
-  "name": "LodGlossary",
-  "version": "0.0.1",
-  "description": "Glossary for ipm.semantics",
+  "name": "react-sinatra",
+  "version": "0.1.0",
+  "description": "example sinatra-react app",
   "main": "index.js",
   "scripts": {
-    "api": "rackup -p 4000 -o '0.0.0.0'",
-    "build": "webpack",
-    "watch": "webpack --watch",
     "dev": "webpack-dev-server --content-base lib/app/views --progress --colors --port 9999 --host '0.0.0.0'",
+    "build": "webpack -p --config webpack.config.js --profile --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LODIFMO/lodGlossary.git"
-  },
-  "author": "Mikhail Navrotskiy",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/LODIFMO/lodGlossary/issues"
-  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "express": "^4.13.4",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1",
     "ace-css": "^1.1.0",
     "css-loader": "^0.26.1",
     "elm-webpack-loader": "^3.1.0",

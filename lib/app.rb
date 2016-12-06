@@ -9,5 +9,5 @@ end
 set :root, 'lib/app'
 
 get '/' do
-  slim :'index'
+  render :html, :index
 end
