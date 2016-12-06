@@ -1,5 +1,7 @@
 'use strict';
 
+require('../lib/app/public/styles.css');
+
 // Require index.html so it gets copied to dist
 require('../lib/app/views/index.html');
 
