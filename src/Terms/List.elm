@@ -9,16 +9,7 @@ import Terms.Models exposing (Term)
 view : List Term -> Html Msg
 view terms =
   div []
-    [ nav terms
-    , list terms
-    ]
-
-nav : List Term -> Html Msg
-nav terms =
-  div [ class "clearfix mb2 white bg-black" ]
-    [ div [ class "left p2" ]
-      [ text "Terms" ]
-    ]
+    [ list terms ]
 
 list : List Term -> Html Msg
 list terms =
