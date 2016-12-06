@@ -1,6 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (Html, div, text, program, table, thead, tbody, tr, td, th, button)
+import Html exposing (Html, div, text, program, table, thead, tbody, tr, td, th,
+ button, i)
 import Html.Attributes exposing (..)
 
 -- MODEL
@@ -43,8 +44,20 @@ view model =
           [ th [] [ text "Термин" ]
           , th [] [ text "Эталон" ]
           , th [] [ text "DBpedia" ]
-          , th [] []
           ]
+        ]
+      ]
+    ]
+
+termRow : Term -> Html Msg
+termRow term =
+  tr []
+    [ td [] [ text term.id ]
+    , td [] [ text term.description ]
+    , td [] [ text term.dbpedia_description ]
+    , th []
+      [ button [ class "btn btn-info btn-xs"]
+        [ i [ class "fa fa-fw fa-eye" ] []
         ]
       ]
     ]
