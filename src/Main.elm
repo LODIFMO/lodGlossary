@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Html exposing (Html, div, text, program, table, thead, tbody, tr, td, th,
- button, i)
+                      button, i)
 import Html.Attributes exposing (..)
+import Http
 
 -- MODEL
 
@@ -74,6 +75,10 @@ update msg terms =
   case msg of
     NoOp ->
       ( terms, Cmd.none )
+
+fetchAllUrl : String
+fetchAllUrl =
+  "http://0.0.0.0:9000/terms.json"
 
 -- SUBSCRIPTIONS
 
