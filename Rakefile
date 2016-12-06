@@ -18,8 +18,14 @@ namespace :db do
     env = args[:env] || 'development'
 
     Rake::Task['environment'].invoke(env)
-    Term.create! title: 'title', description: 'description',
-                 dbpedia_description: 'dbpedia', dbpedia_uri: '12'
+
+    require 'yaml'
+
+    thing = YAML.load_file('data/terms.yml')
+    thing.each do |item|
+      Term.create! title: item['title'], description: item['description'],
+                          dbpedia_description: '', dbpedia_uri: ''
+    end
   end
 
   desc 'Remove all data'
