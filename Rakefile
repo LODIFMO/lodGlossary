@@ -36,4 +36,30 @@ namespace :db do
     Rake::Task['environment'].invoke(env)
     Term.delete_all
   end
+
+  desc 'Load DBpedia'
+  task :dbpedia do |cmd, args|
+    env = args[:env] || 'development'
+
+    Rake::Task['environment'].invoke(env)
+    require 'sparql/client'
+    require 'byebug'
+    sparql = SPARQL::Client.new("http://dbpedia.org/sparql")
+    Term.all.each do |item|
+      query = sparql.query(
+        <<-SPARQL
+          SELECT DISTINCT ?concept ?description
+          WHERE {
+            ?concept rdfs:comment ?description .
+            ?concept rdfs:label "#{item.en_title}"@en .
+            FILTER ( lang(?description) = "ru" )
+          }
+        SPARQL
+      )
+      next if query.blank? || query.size < 1
+      item.dbpedia_uri = query.first[:concept].value
+      item.dbpedia_description = query.first[:description].value
+      item.save!
+    end
+  end
 end

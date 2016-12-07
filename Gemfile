@@ -7,3 +7,9 @@ gem 'sinatra-contrib'
 gem 'mongo'
 gem 'bson_ext'
 gem 'mongoid'
+
+# RDF
+gem 'sparql-client'
+
+# debug
+gem 'byebug'
