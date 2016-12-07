@@ -20,6 +20,7 @@ list terms =
           [ th [] [ text "Термин" ]
           , th [] [ text "Эталон" ]
           , th [] [ text "DBpedia" ]
+          , th [] []
           ]
         ]
       , tbody [] ( List.map termRow terms )
@@ -29,10 +30,10 @@ list terms =
 termRow : Term -> Html Msg
 termRow term =
   tr []
-    [ td [] [ text term.title ]
-    , td [] [ text term.description ]
-    , td [] [ text term.dbpedia_description ]
-    , td []
+    [ td [ attribute "width" "5%" ] [ text term.title ]
+    , td [ attribute "width" "45%" ] [ text term.description ]
+    , td [ attribute "width" "45%" ] [ text term.dbpedia_description ]
+    , td [ attribute "width" "5%" ]
       [ button [ class "btn btn-info btn-xs"]
         [ i [ class "fa fa-fw fa-eye" ] []
         ]
