@@ -3,3 +3,5 @@ development:
     default:
       database: lod_glossary
       hosts: ["mongo:27017"]
+production:
+  url: <%= ENV['MONGO_URL'] %>
