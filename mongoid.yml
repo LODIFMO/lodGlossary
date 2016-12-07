@@ -3,10 +3,3 @@ development:
     default:
       database: lod_glossary
       hosts: ["mongo:27017"]
-production:
-  clients:
-    default:
-      database: lod_glossary
-      hosts: ["ds127928.mlab.com:27928"]
-      username: m.navrotskiy
-      password: 21redhat
