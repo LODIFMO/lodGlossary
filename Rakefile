@@ -24,7 +24,8 @@ namespace :db do
     thing = YAML.load_file('data/terms.yml')
     thing.each do |item|
       Term.create! title: item['title'], description: item['description'],
-                          dbpedia_description: '', dbpedia_uri: ''
+                   dbpedia_description: '', dbpedia_uri: '',
+                   en_title: item['en_title']
     end
   end
 
