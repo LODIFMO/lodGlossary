@@ -1,25 +1,46 @@
 module Main exposing (..)
 
-import Html exposing (Html, div, text, program)
+import Html exposing (..)
 import Messages exposing (Msg(..))
-import Models exposing (Model, initialModel)
-import Update exposing (update)
-import View exposing (view)
-import Terms.Commands exposing (fetchAll)
+import Models exposing (Model)
+import Terms.Edit
+import Terms.List
+import Terms.Model exposing (TermId)
+import Routing exposing (Route(..))
 
-init : (Model, Cmd Msg)
-init =
-  ( initialModel, Cmd.map TermsMsg fetchAll )
+view : Model -> Html Msg
+view model =
+  div []
+    [ page model ]
 
-subscriptions : Model -> Sub Msg
-subscriptions model =
-  Sub.none
+page : Model -> Html Msg
+page model =
+  case model.route of
+    TermsRoute ->
+      Html.map TermsMsg (Terms.List.view model.terms)
+    
+    TermRoute id ->
+      termEditPage model id
 
-main : Program Never Model Msg
-main =
-  program
-    { init = init
-    , view = view
-    , update = update
-    , subscriptions = subscriptions
-    }
+    NotFoundRoute ->
+      notFoundView
+
+termEditPage : Model -> TermId -> Html Msg
+termEditPage model termId =
+  let
+    maybeTerm =
+      model.terms
+        |> List.filter (\term -> term.id == termId)
+        |> List.head
+  in
+    case maybeTerm of
+      Just term ->
+        Html.map TermsMsg (Terms.Edit.view term)
+      
+      Nothing ->
+        notFoundView
+
+notFoundView : Html Msg
+notFoundView =
+  div []
+    [ text "Not found" ]
