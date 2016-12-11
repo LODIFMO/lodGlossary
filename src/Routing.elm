@@ -1,4 +1,4 @@
-module Routing expose (..)
+module Routing exposing (..)
 
 import Navigation exposing (Location)
 import Terms.Models exposing (TermId)
