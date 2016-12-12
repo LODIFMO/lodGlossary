@@ -7,3 +7,4 @@ type Msg
   = OnFetchAll (Result Http.Error (List Term))
   | ShowTerm TermId
   | ShowTerms
+  | NewTerm

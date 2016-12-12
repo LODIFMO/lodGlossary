@@ -18,3 +18,6 @@ update msg terms =
     
     ShowTerms ->
       ( terms, Navigation.newUrl "#terms" )
+    
+    NewTerm ->
+      ( terms, Navigation.newUrl "#new" )

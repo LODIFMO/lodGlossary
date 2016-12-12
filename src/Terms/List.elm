@@ -15,7 +15,7 @@ view terms =
 list : List Term -> Html Msg
 list terms =
   div [ class "row" ]
-    [ a [ attribute "href" "/#new"
+    [ a [ onClick NewTerm
         , class "btn btn-primary" 
         ]
       [ i [ class "fa fa-fw fa-plus" ] []
