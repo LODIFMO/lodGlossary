@@ -19,3 +19,13 @@ init location =
 subscriptions : Model -> Sub Msg
 subscriptions model =
   Sub.none
+
+main : Program Never Model Msg
+main =
+  Navigation.program OnLocationChange
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
+

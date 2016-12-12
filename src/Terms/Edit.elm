@@ -1,7 +1,7 @@
 module Terms.Edit exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
+-- import Html.Attributes exposing (..)
 import Terms.Messages exposing (..)
 import Terms.Models exposing (..)
 
@@ -14,4 +14,4 @@ view model =
 form : Term -> Html Msg
 form model =
   div []
-    [ h1 "QWE" [] [] ]
+    [ h1 [] [ text "QWE" ] ]

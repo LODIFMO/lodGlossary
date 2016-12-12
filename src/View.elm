@@ -5,7 +5,7 @@ import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Terms.Edit
 import Terms.List
-import Terms.Model exposing (TermId)
+import Terms.Models exposing (TermId)
 import Routing exposing (Route(..))
 
 view : Model -> Html Msg
