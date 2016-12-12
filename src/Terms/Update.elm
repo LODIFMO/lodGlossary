@@ -15,3 +15,6 @@ update msg terms =
     
     ShowTerm id ->
       ( terms, Navigation.newUrl ("#terms/" ++ id) )
+    
+    ShowTerms ->
+      ( terms, Navigation.newUrl "#terms" )
