@@ -1,4 +1,4 @@
-module Main exposing (..)
+module View exposing (..)
 
 import Html exposing (..)
 import Messages exposing (Msg(..))
