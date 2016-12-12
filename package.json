@@ -1,25 +1,19 @@
 {
-  "name": "react-sinatra",
+  "name": "lod glossary app",
   "version": "0.1.0",
-  "description": "example sinatra-react app",
+  "description": "lod glossary for ipm.semantics ITMO University",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base 9000 --progress --colors --port 9999 --host '0.0.0.0'",
     "build": "webpack -p --config webpack.config.js --profile --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "nav-mike (M. Navrotskiy m.navrotskiy@gmail.com)",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.13.4",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "express": "^4.13.4"
   },
   "devDependencies": {
-    "css-loader": "^0.23.1",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1",
     "ace-css": "^1.1.0",
     "css-loader": "^0.26.1",
     "elm-webpack-loader": "^3.1.0",
