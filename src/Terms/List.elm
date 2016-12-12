@@ -14,7 +14,13 @@ view terms =
 list : List Term -> Html Msg
 list terms =
   div [ class "row" ]
-    [ table [ class "table table-hover table-striped" ]
+    [ a [ attribute "href" "/#new"
+        , class "btn btn-primary" 
+        ]
+      [ i [ class "fa fa-fw fa-plus" ] []
+      , text "Add new term"  
+      ]
+    , table [ class "table table-hover table-striped" ]
       [ thead []
         [ tr []
           [ th [] [ text "Термин" ]

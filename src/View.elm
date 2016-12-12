@@ -5,8 +5,10 @@ import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Terms.Edit
 import Terms.List
+import Terms.New
 import Terms.Models exposing (TermId)
 import Routing exposing (Route(..))
+import Debug exposing (log)
 
 view : Model -> Html Msg
 view model =
@@ -22,8 +24,15 @@ page model =
     TermRoute id ->
       termEditPage model id
 
+    NewTermRoute ->
+      termNewPage
+
     NotFoundRoute ->
       notFoundView
+
+termNewPage : Html Msg
+termNewPage =
+  Html.map TermsMsg (Terms.New.view)
 
 termEditPage : Model -> TermId -> Html Msg
 termEditPage model termId =

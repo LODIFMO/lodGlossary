@@ -7,6 +7,7 @@ import UrlParser exposing (..)
 type Route
   = TermsRoute
   | TermRoute TermId
+  | NewTermRoute
   | NotFoundRoute
 
 matchers : Parser (Route -> a) a
@@ -14,6 +15,7 @@ matchers =
   oneOf
     [ map TermsRoute top
     , map TermRoute (s "terms" </> string)
+    , map NewTermRoute (s "new" )
     , map TermsRoute (s "terms")
     ]
 
