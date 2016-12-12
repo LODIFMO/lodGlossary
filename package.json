@@ -1,5 +1,5 @@
 {
-  "name": "lod glossary app",
+  "name": "lod-glossary-app",
   "version": "0.1.0",
   "description": "lod glossary for ipm.semantics ITMO University",
   "main": "index.js",
