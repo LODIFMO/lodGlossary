@@ -2,6 +2,7 @@ module Terms.Update exposing (..)
 
 import Terms.Messages exposing(Msg(..))
 import Terms.Models exposing(Term)
+import Navigation
 
 update : Msg -> List Term -> ( List Term, Cmd Msg )
 update msg terms =
@@ -11,3 +12,6 @@ update msg terms =
 
     OnFetchAll (Err error) ->
       ( terms, Cmd.none )
+    
+    ShowTerm id ->
+      ( terms, Navigation.newUrl ("#terms/" ++ id) )
