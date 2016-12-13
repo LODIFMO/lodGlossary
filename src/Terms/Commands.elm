@@ -22,6 +22,18 @@ updateUrl : TermId -> String
 updateUrl termId =
   "http://0.0.0.0:9000/terms/" ++ termId ++ ".json"
 
+createRequest : Term -> Http.Request Term
+createRequest term =
+  Http.request
+  { body = memberEncoded term |> Http.jsonBody
+  , expect = Http.expectJson memberDecoder
+  , headers = []
+  , method = "POST"
+  , timeout = Nothing
+  , url = createUrl
+  , withCredentials = False
+  }
+
 collectionDecoder : Decode.Decoder (List Term)
 collectionDecoder =
   Decode.list memberDecoder
