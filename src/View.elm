@@ -6,6 +6,7 @@ import Models exposing (Model)
 import Terms.Edit
 import Terms.List
 import Terms.New
+import Terms.Description
 import Terms.Models exposing (TermId)
 import Routing exposing (Route(..))
 import Debug exposing (log)
@@ -20,12 +21,15 @@ page model =
   case model.route of
     TermsRoute ->
       Html.map TermsMsg (Terms.List.view model.terms)
-    
+
     TermRoute id ->
       termEditPage model id
 
     NewTermRoute ->
       termNewPage
+
+    DescriptionTermRoute id ->
+      termDescriptionPage model id
 
     NotFoundRoute ->
       notFoundView
@@ -33,6 +37,23 @@ page model =
 termNewPage : Html Msg
 termNewPage =
   Html.map TermsMsg (Terms.New.view)
+
+termDescriptionPage : Model -> TermId -> Html Msg
+termDescriptionPage model termId =
+  let
+    maybeTerm =
+      model.terms
+        |> List.filter (\term -> term.id == termId)
+        |> List.head
+  in
+    case maybeTerm of
+      Just term ->
+        Html.map TermsMsg (Terms.Description.view term)
+
+      Nothing ->
+        notFoundView
+
+
 
 termEditPage : Model -> TermId -> Html Msg
 termEditPage model termId =
@@ -45,7 +66,7 @@ termEditPage model termId =
     case maybeTerm of
       Just term ->
         Html.map TermsMsg (Terms.Edit.view term)
-      
+
       Nothing ->
         notFoundView
 

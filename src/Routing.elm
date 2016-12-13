@@ -8,6 +8,7 @@ type Route
   = TermsRoute
   | TermRoute TermId
   | NewTermRoute
+  | DescriptionTermRoute TermId
   | NotFoundRoute
 
 matchers : Parser (Route -> a) a
@@ -15,6 +16,7 @@ matchers =
   oneOf
     [ map TermsRoute top
     , map TermRoute (s "terms" </> string)
+    , map DescriptionTermRoute (s "desc" </> string)
     , map NewTermRoute (s "new" )
     , map TermsRoute (s "terms")
     ]
@@ -24,6 +26,6 @@ parseLocation location =
   case (parseHash matchers location) of
     Just route ->
       route
-    
+
     Nothing ->
       NotFoundRoute
