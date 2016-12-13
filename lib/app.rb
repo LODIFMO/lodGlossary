@@ -19,3 +19,9 @@ get '/terms.json' do
   terms = Term.all
   json terms.map(&:to_json)
 end
+
+post '/terms.json' do
+  term = Term.new params[:term]
+  term.save!
+  json term.to_json
+end
