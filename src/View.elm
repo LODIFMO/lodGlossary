@@ -7,6 +7,7 @@ import Terms.Edit
 import Terms.List
 import Terms.New
 import Terms.Description
+import Users.New
 import Terms.Models exposing (TermId)
 import Routing exposing (Route(..))
 import Debug exposing (log)
@@ -30,6 +31,9 @@ page model =
 
     DescriptionTermRoute id ->
       termDescriptionPage model id
+    
+    SignInRoute ->
+      userSignInPage
 
     NotFoundRoute ->
       notFoundView
@@ -37,6 +41,10 @@ page model =
 termNewPage : Html Msg
 termNewPage =
   Html.map TermsMsg (Terms.New.view)
+
+userSignInPage : Html Msg
+userSignInPage =
+  Html.map UsersMsg (Users.New.view)
 
 termDescriptionPage : Model -> TermId -> Html Msg
 termDescriptionPage model termId =
