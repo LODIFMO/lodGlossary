@@ -14,6 +14,10 @@ fetchAllUrl : String
 fetchAllUrl =
   "http://0.0.0.0:9000/terms.json"
 
+createUrl : String
+createUrl =
+  "http://0.0.0.0:9000/terms.json"
+
 collectionDecoder : Decode.Decoder (List Term)
 collectionDecoder =
   Decode.list memberDecoder
