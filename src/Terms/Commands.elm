@@ -18,6 +18,10 @@ createUrl : String
 createUrl =
   "http://0.0.0.0:9000/terms.json"
 
+updateUrl : TermId -> String
+updateUrl termId =
+  "http://0.0.0.0:9000/terms/" ++ termId ++ ".json"
+
 collectionDecoder : Decode.Decoder (List Term)
 collectionDecoder =
   Decode.list memberDecoder
