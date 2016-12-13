@@ -4,7 +4,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Terms.Messages exposing (..)
 import Html.Events exposing (onClick)
--- import Terms.Models exposing (..)
 
 view : Html Msg
 view =
