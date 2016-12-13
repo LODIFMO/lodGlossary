@@ -8,3 +8,4 @@ type Msg
   | ShowTerm TermId
   | ShowTerms
   | NewTerm
+  | OnSave (Result Http.Error Term)
