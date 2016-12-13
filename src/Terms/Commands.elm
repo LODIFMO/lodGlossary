@@ -34,6 +34,18 @@ createRequest term =
   , withCredentials = False
   }
 
+memberEncoded : Term -> Encode.Value
+memberEncoded term =
+  let
+    list =
+      [ ( "title", Encode.string term.title )
+      , ( "en_title", Encode.string term.en_title )
+      ]
+  
+  in
+    list
+      |> Encode.object
+
 collectionDecoder : Decode.Decoder (List Term)
 collectionDecoder =
   Decode.list memberDecoder
