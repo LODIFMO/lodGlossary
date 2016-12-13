@@ -3,20 +3,12 @@ module Users.New exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Users.Messages exposing (..)
-import Terms.Messages exposing (..)
 import Html.Events exposing (onClick)
 
 view : Html Msg
 view =
   div []
-    [ div [ class "page-header" ]
-      [ button [ class "btn btn-default"
-               , onClick ShowTerms ]
-        [ i [ class "fa fa-fw fa-chevron-left" ] []
-        , text "Back"
-        ]
-      ]
-    , div [ class "panel panel-default" ]
+    [ div [ class "panel panel-default" ]
       [ div [ class "panel-heading" ]
         [ h3 [] [ text "Sign in" ]
         ]
@@ -39,11 +31,6 @@ view =
               [ button [ class "btn btn-primary" ]
                 [ i [ class "fa fa-fw fa-sign-in" ] []
                 , text "Sing in"
-                ]
-              , a [ class "btn btn-default"
-                  , onClick ShowTerms ]
-                [ i [ class "fa fa-fw fa-ban" ] []
-                , text "Cancel"
                 ]
               ]
             ]

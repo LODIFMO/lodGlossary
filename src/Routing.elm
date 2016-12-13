@@ -18,7 +18,7 @@ matchers =
     [ map TermsRoute top
     , map TermRoute (s "terms" </> string)
     , map DescriptionTermRoute (s "desc" </> string)
-    , map SignInRoute (s "singin")
+    , map SignInRoute (s "sing-in")
     , map NewTermRoute (s "new" )
     , map TermsRoute (s "terms")
     ]

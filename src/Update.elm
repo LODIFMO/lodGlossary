@@ -13,7 +13,10 @@ update msg model =
         ( updateTerms, cmd ) =
           Terms.Update.update subMsg model.terms
       in
-        ( { model | terms =updateTerms }, Cmd.map TermsMsg cmd )
+        ( { model | terms = updateTerms }, Cmd.map TermsMsg cmd )
+    
+    UsersMsg subMsg ->
+      ( model, Cmd.none )
     
     OnLocationChange location ->
       let
