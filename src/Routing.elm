@@ -9,6 +9,7 @@ type Route
   | TermRoute TermId
   | NewTermRoute
   | DescriptionTermRoute TermId
+  | SignInRoute
   | NotFoundRoute
 
 matchers : Parser (Route -> a) a
@@ -17,6 +18,7 @@ matchers =
     [ map TermsRoute top
     , map TermRoute (s "terms" </> string)
     , map DescriptionTermRoute (s "desc" </> string)
+    , map SignInRoute (s "singin")
     , map NewTermRoute (s "new" )
     , map TermsRoute (s "terms")
     ]
