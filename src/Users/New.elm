@@ -3,10 +3,11 @@ module Users.New exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Users.Messages exposing (..)
+import Users.Models exposing (..)
 import Html.Events exposing (onClick, onInput)
 
-view : Html Msg
-view =
+view : User -> Html Msg
+view user =
   div []
     [ div [ class "panel panel-default" ]
       [ div [ class "panel-heading" ]

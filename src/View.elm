@@ -32,7 +32,7 @@ page model =
       termDescriptionPage model id
     
     SignInRoute ->
-      userSignInPage
+      userSignInPage model
 
     NotFoundRoute ->
       notFoundView
@@ -41,9 +41,9 @@ termNewPage : Html Msg
 termNewPage =
   Html.map TermsMsg (Terms.New.view)
 
-userSignInPage : Html Msg
-userSignInPage =
-  Html.map UsersMsg (Users.New.view)
+userSignInPage : Model -> Html Msg
+userSignInPage model =
+  Html.map UsersMsg (Users.New.view model.user)
 
 termDescriptionPage : Model -> TermId -> Html Msg
 termDescriptionPage model termId =
