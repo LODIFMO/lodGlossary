@@ -9,6 +9,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     backports (3.6.8)
+    bcrypt (3.1.11)
     bson (4.2.0)
     bson_ext (1.5.1)
     byebug (9.0.6)
@@ -48,11 +49,14 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    warden (1.2.6)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bson_ext
   byebug
   mongo
@@ -60,6 +64,7 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   sparql-client
+  warden
 
 BUNDLED WITH
    1.13.6
