@@ -6,14 +6,18 @@ type alias TermId =
 type alias Term =
   { id: TermId
   , title: String
+  , en_title: String
   , description: String
   , dbpedia_description: String
+  , dbpedia_uri: String
   }
 
 new : Term
 new =
   { id = "0"
   , title = ""
+  , en_title = ""
   , description = ""
   , dbpedia_description = ""
+  , dbpedia_uri = ""
   }

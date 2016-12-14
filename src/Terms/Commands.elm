@@ -2,6 +2,7 @@ module Terms.Commands exposing (..)
 
 import Http
 import Json.Decode as Decode exposing (field)
+import Json.Encode as Encode
 import Terms.Models exposing (TermId, Term)
 import Terms.Messages exposing (..)
 
@@ -40,6 +41,10 @@ memberEncoded term =
     list =
       [ ( "title", Encode.string term.title )
       , ( "en_title", Encode.string term.en_title )
+      , ( "id", Encode.string term.id)
+      , ( "description", Encode.string term.description )
+      , ( "dbpedia_description", Encode.string term.dbpedia_description )
+      , ( "dbpedia_uri", Encode.string term.dbpedia_uri )
       ]
   
   in
@@ -52,8 +57,10 @@ collectionDecoder =
 
 memberDecoder : Decode.Decoder Term
 memberDecoder =
-  Decode.map4 Term
+  Decode.map6 Term
     (field "id" Decode.string)
     (field "title" Decode.string)
+    (field "en_title" Decode.string)
     (field "description" Decode.string)
     (field "dbpedia_description" Decode.string)
+    (field "dbpedia_uri" Decode.string)

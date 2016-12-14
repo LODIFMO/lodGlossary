@@ -10,7 +10,6 @@ import Terms.Description
 import Users.New
 import Terms.Models exposing (TermId)
 import Routing exposing (Route(..))
-import Debug exposing (log)
 
 view : Model -> Html Msg
 view model =
