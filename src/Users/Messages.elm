@@ -1,4 +1,5 @@
 module Users.Messages exposing (..)
 
 type Msg
-  = NoOp
+  = FormEmail String
+  | FormPassword String

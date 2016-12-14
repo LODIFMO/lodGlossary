@@ -3,7 +3,7 @@ module Users.New exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Users.Messages exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onInput)
 
 view : Html Msg
 view =
@@ -18,13 +18,15 @@ view =
             [ label [ class "control-label" ] [ text "Email" ]
             , input [ class "form-control"
                     , attribute "type" "string"
-                    , placeholder "Email" ] []
+                    , placeholder "Email"
+                    , onInput FormEmail ] []
             ]
           , div [ class "form-group" ]
             [ label [ class "control-label" ] [ text "Password" ]
             , input [ class "form-control"
                     , attribute "type" "password"
-                    , placeholder "Password" ] []
+                    , placeholder "Password"
+                    , onInput FormPassword ] []
             ]
           , div [ class "form-group" ]
             [ div [ class "col-sm-offset-2 col-sm-10" ]

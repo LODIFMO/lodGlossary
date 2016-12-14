@@ -6,5 +6,8 @@ import Users.Models exposing (User)
 update : Msg -> User -> ( User, Cmd Msg )
 update msg user =
   case msg of
-    NoOp ->
-      ( user, Cmd.none )
+    FormEmail email ->
+      { user | email = email }
+    
+    FormPassword password ->
+      { user | password = password }
