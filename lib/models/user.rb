@@ -8,6 +8,7 @@ class User
 
   field :email, type: String
   field :password, type: String
+  field :password_hash, type: String
   field :token, type: String
 
   before_create :hash_password
@@ -21,12 +22,8 @@ class User
     self.password_hash = self['password']
   end
 
-  def self.authenticate!(email, password)
+  def self.authenticate?(email, password)
     user = User.find_by_email(email)
-    if user.password == password
-      '7VmN06huIRQ8RcXgOvmTHqLG02W2Yz5k'
-    else
-      throw :warden
-    end
+    user.password == password
   end
 end

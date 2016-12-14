@@ -27,6 +27,14 @@ class API < Grape::API
     Term.all.map(&:to_json)
   end
 
+  post :signin do
+    if User.authenticate? params[:email], params[:password]
+      {token: '7VmN06huIRQ8RcXgOvmTHqLG02W2Yz5k'}
+    else
+      {error: 404}
+    end
+  end
+
   resource :admin do
     before do
       env['warden'].authenticate :my_token

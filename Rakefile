@@ -10,6 +10,7 @@ task :environment, [:env] => 'bundler:setup' do |cmd, args|
   ENV['RACK_ENV'] = args[:env] || 'development'
   Mongoid.load!('mongoid.yml', ENV['RACK_ENV'])
   require './lib/models/term'
+  require './lib/models/user'
 end
 
 namespace :db do
@@ -43,9 +44,16 @@ namespace :db do
 
     Rake::Task['environment'].invoke(env)
     require 'sparql/client'
-    require 'byebug'
     Term.all.each do |item|
       item.upload!
     end
+  end
+
+  desc 'Create user'
+  task :user do |cmd, args|
+    env = args[:env] || 'development'
+
+    Rake::Task['environment'].invoke(env)
+    User.create! email: 'admin@admin.com', password: '12345678'
   end
 end
