@@ -26,14 +26,14 @@ updateUrl termId =
 createRequest : Term -> Http.Request Term
 createRequest term =
   Http.request
-  { body = memberEncoded term |> Http.jsonBody
-  , expect = Http.expectJson memberDecoder
-  , headers = []
-  , method = "POST"
-  , timeout = Nothing
-  , url = createUrl
-  , withCredentials = False
-  }
+    { body = memberEncoded term |> Http.jsonBody
+    , expect = Http.expectJson memberDecoder
+    , headers = []
+    , method = "POST"
+    , timeout = Nothing
+    , url = createUrl
+    , withCredentials = False
+    }
 
 memberEncoded : Term -> Encode.Value
 memberEncoded term =

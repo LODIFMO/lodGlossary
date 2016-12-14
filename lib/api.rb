@@ -27,7 +27,7 @@ class API < Grape::API
     Term.all.map(&:to_json)
   end
 
-  post :signin do
+  post :sign_in do
     if User.authenticate? params[:email], params[:password]
       {token: '7VmN06huIRQ8RcXgOvmTHqLG02W2Yz5k'}
     else
