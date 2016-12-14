@@ -33,6 +33,8 @@ GEM
       rack (>= 1.3.0)
       rack-accept
       virtus (>= 1.0.0)
+    hamster (3.0.0)
+      concurrent-ruby (~> 1.0)
     hashie (3.4.6)
     i18n (0.7.0)
     ice_nine (0.11.2)
@@ -57,7 +59,8 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rdf (1.1.17.1)
+    rdf (2.1.1)
+      hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     sinatra (1.4.7)
       rack (~> 1.5)
@@ -70,9 +73,9 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (>= 1.3, < 3)
-    sparql-client (1.1.6.1)
+    sparql-client (2.1.0)
       net-http-persistent (~> 2.9)
-      rdf (~> 1.1, < 1.99)
+      rdf (~> 2.0)
     thread_safe (0.3.5)
     tilt (2.0.5)
     tool (0.2.3)
