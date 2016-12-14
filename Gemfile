@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'warden'
-gem 'bcrypt'
+
+# API
+gem 'grape'
 
 # mongo
 gem 'mongo'
