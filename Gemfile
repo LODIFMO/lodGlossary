@@ -6,6 +6,7 @@ gem 'sinatra-contrib'
 # API
 gem 'grape'
 gem 'warden'
+gem 'bcrypt'
 
 # mongo
 gem 'mongo'

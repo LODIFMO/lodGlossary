@@ -13,6 +13,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     backports (3.6.8)
+    bcrypt (3.1.11)
     bson (4.2.0)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -93,6 +94,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bson_ext
   byebug
   grape
