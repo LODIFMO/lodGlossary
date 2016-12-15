@@ -36,6 +36,7 @@ namespace :db do
 
     Rake::Task['environment'].invoke(env)
     Term.delete_all
+    User.delete_all
   end
 
   desc 'Load DBpedia'

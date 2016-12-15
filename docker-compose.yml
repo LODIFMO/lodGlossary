@@ -12,3 +12,5 @@ services:
       - "9999:9999"
     depends_on:
       - mongo
+    stdin_open: true
+    tty: true

@@ -11,19 +11,19 @@ class User
   field :password_hash, type: String
   field :token, type: String
 
-  before_create :hash_password
+  # before_create :hash_password
 
   def password
-    self['password'] ||= Password.new(password_hash)
+    @password ||= Password.new(password_hash)
   end
 
-  def hash_password
-    self['password'] = Password.create(self['password'])
-    self.password_hash = self['password']
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
   end
 
   def self.authenticate?(email, password)
-    user = User.find_by_email(email)
+    user = User.find_by(email: email)
     user.password == password
   end
 end

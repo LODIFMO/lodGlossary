@@ -1,7 +1,10 @@
 require 'grape'
 require 'warden'
+require 'grape_logging'
+require 'byebug'
 
-require './lib/models/term' 
+require './lib/models/term'
+require './lib/models/user' 
 
 Warden::Strategies.add(:my_token) do
   def authenticate!
@@ -15,6 +18,12 @@ Warden::Strategies.add(:my_token) do
 end
 
 class API < Grape::API
+  log_file = File.open('api.log', 'a')
+  log_file.sync = true
+  logger Logger.new GrapeLogging::MultiIO.new(STDOUT, log_file)
+  logger.formatter = GrapeLogging::Formatters::Default.new
+  use GrapeLogging::Middleware::RequestLogger, { logger: logger }
+
   format :json
   prefix :api
 
