@@ -4,7 +4,7 @@ require 'grape_logging'
 require 'byebug'
 
 require './lib/models/term'
-require './lib/models/user' 
+require './lib/models/user'
 
 Warden::Strategies.add(:my_token) do
   def authenticate!
@@ -42,6 +42,10 @@ class API < Grape::API
     else
       {error: 404}
     end
+  end
+
+  post :terms do
+    byebug
   end
 
   resource :admin do

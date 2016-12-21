@@ -15,7 +15,7 @@ view =
         [ i [ class "fa fa-fw fa-chevron-left" ] []
         , text "Back"
       ]
-    ] 
+    ]
     , div [ class "panel panel-default" ]
       [ div [ class "panel-heading" ]
         [ h3 [] [ text "Add new term" ]
@@ -29,7 +29,7 @@ view =
             , div [ class "col-sm-10" ]
               [ input [ class "form-control"
                       , id "inputTitle"
-                      , attribute "placeholder" "Title" 
+                      , attribute "placeholder" "Title"
                       ] []
               ]
             ]
@@ -45,7 +45,8 @@ view =
             ]
           , div [ class "form-group" ]
             [ div [ class "col-sm-offset-2 col-sm-10" ]
-              [ button [ class "btn btn-primary" ]
+              [ button [ class "btn btn-primary"
+                       , type_ "button" ]
                 [ i [ class "fa fa-fw fa-floppy-o" ] []
                 , text "Save"
                 ]
