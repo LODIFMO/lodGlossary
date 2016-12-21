@@ -3,7 +3,7 @@ module Terms.New exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Terms.Messages exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onInput)
 
 view : Html Msg
 view =
@@ -30,6 +30,7 @@ view =
               [ input [ class "form-control"
                       , id "inputTitle"
                       , attribute "placeholder" "Title"
+                      , onInput FormTitle
                       ] []
               ]
             ]
@@ -40,7 +41,9 @@ view =
             , div [ class "col-sm-10" ]
               [ input [ class "form-control"
                       , id "inputEngTitle"
-                      , attribute "placeholder" "Title in ENG"] []
+                      , attribute "placeholder" "Title in ENG"
+                      , onInput FormEngTitle
+                      ] []
               ]
             ]
           , div [ class "form-group" ]
