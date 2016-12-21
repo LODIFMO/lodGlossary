@@ -12,17 +12,6 @@ type alias Term =
   , dbpedia_uri: String
   }
 
-type alias TermForm =
-  { title: String
-  , en_title: String
-  }
-
-createTermForm : TermForm
-createTermForm =
-  { title = ""
-  , en_title = ""
-  }
-
 new : Term
 new =
   { id = "0"
