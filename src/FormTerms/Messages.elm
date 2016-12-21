@@ -1,6 +1,6 @@
-module Terms.FormTerms exposing(..)
+module FormTerms.Messages exposing(..)
 
-import FormTerms.Models exposing (FormTerm)
+import FormTerms.Models exposing (TermForm)
 
 type Msg
   = FormTitle String
